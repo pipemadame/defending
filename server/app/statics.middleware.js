@@ -4,12 +4,11 @@ var express = require('express'),
 	router = express.Router(),
 	path = require('path');
 
-var rootPath = path.join(__dirname, '..', '..');
 
-var publicPath = path.join(rootPath, 'public');
+var publicPath = path.join(__dirname, 'public');
 
-router.use(express.static(publicPath));
-
-router.use(express.static(rootPath));
+router.use('/browser', express.static('browser'));
+router.use('/bower_components', express.static('bower_components'));
+router.use(express.static('public'));
 
 module.exports = router;

@@ -4,6 +4,7 @@ var router = require('express').Router(),
 	session = require('express-session'),
 	passport = require('passport');
 
+var sessionSecret = require('../../config/keys.js').sessionSecret;
 var User = require('../api/users/user.model');
 
 router.use(function (req, res, next) {
@@ -19,7 +20,7 @@ router.use(function (req, res, next) {
 });
 
 router.use(session({
-	secret: 'tongiscool',
+	secret: sessionSecret,
 	resave: false,
 	saveUninitialized: false
 }));

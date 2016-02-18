@@ -25,6 +25,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+	req.body.isAdmin = false;
 	Story.create(req.body)
 	.then(function (story) {
 		return story.populateAsync('author');
